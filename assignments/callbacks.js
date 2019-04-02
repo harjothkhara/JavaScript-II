@@ -79,30 +79,57 @@ console.log(last(items,lastitem));
 
 
 
-
+    //HOF
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x,y);
 }
 
+  //cb
+
+  function add (x,y){
+    return x + y;
+  }
+
+  //invoke
+
+  console.log(sumNums(2,5,add));
 
 
-
-
-
-function multiplyNums(x, y, cb) {
+    //HOF
+  function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+    return cb(x,y);
 }
 
+  //cb
+
+  function multiple(x,y) {
+    return x * y ;
+  }
+
+    //invoke
+
+  console.log(multiplyNums(3,7, multiple));
 
 
 
-
-
-function contains(item, list, cb) {
+    //HOF
+  function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+    return cb(item,list);
 }
 
+  //cb
+
+  function checks(item,list) {
+    return list.includes(item);     // The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+  }
+
+  //invoke
+
+  console.log(contains('Banana', items, checks));
 
 
 
