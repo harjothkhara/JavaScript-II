@@ -1,6 +1,29 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
 
+// Global Scope (the world in which our code lives in) 
+
+// Space of code!
+
+function pizza() {
+  // The lexical scope of topping is pizza() because that's where it was initially defined. Belong === lexical
+  const topping = "pepperoni";
+  console.log(`${topping} is my favourite!`);
+
+  
+  function crust() {
+    const typeofcrust = "deep pan";
+    console.log(`The governor said: I love ${typeofcrust}!`); 
+    console.log(`The mayor asked: Where is my ${topping}!`);
+   
+  }// crust 
+  
+  crust(); //works in the pizza block
+
+}// pizza
+
+pizza();
+
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
