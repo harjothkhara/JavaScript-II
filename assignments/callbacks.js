@@ -61,22 +61,18 @@ function arrlength(arr){
 
 
 
-    //HOF
+  
+  // [last] passes the [last item of the array] [into the callback].
+
+  // HOF using "cb" as the call back 
   function last(arr, cb) {
-  // last passes the last item of the array into the callback.
+  return cb(arr[arr.length - 1]);
+ }
 
-    return cb(arr);
-}
-
-    //cb
-
-    function lastitem(arr){
-      return arr[arr.length - 1]
-    }
-
-    //invoke
-console.log(last(items,lastitem));
-
+ // invoke cb
+ last (items, function(lastitem){
+  console.log(lastitem); 
+ }); 
 
 
     //HOF
@@ -115,21 +111,19 @@ function sumNums(x, y, cb) {
 
 
     //HOF
+  // [contains] [checks] if an [item] is present [inside of the given array/list.]
+ // Pass true to the callback if it is, otherwise pass false. 
   function contains(item, list, cb) {
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
-    return cb(item,list);
-}
-
-  //cb
-
-  function checks(item,list) {
-    return list.includes(item);     // The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+    return cb(list.includes(item));   
   }
+  // The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
 
-  //invoke
 
-  console.log(contains('Banana', items, checks));
+  //invoke cb
+
+  contains('Banana', items, function(checks){
+    console.log(checks);
+  });
 
 
 
